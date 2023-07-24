@@ -34,10 +34,15 @@ exports.userSignIn = async (req, res) => {
             message: 'Incorrect email/password!'
         });
 
-        const token = jwt.sign({userId: user._id}, process.env.
-            JWT_SECRET,{
+        const token = jwt.sign({userId: user._id}, 
+            process.env.JWT_SECRET,{
                 expiresIn: '1d'
-            });
+        });
 
-    res.json({success: true, user, token});
+        const userInfo = {
+            fullname: user.fullname,
+            email: user.email,
+        }
+
+    res.json({success: true, user: userInfo , token});
 };
