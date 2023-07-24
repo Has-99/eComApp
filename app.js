@@ -50,7 +50,7 @@ app.get('/test',(req,res) => {
 });*/
 
 app.get('/',(req,res)=> {
-    res.send ('<h1>Hello World</h1>');
+    res.json({success: true, message: 'Welcome to the backend!'});
 });
 
 app.listen(8000, () => {
