@@ -2,9 +2,9 @@ const express = require ('express');
 require('dotenv').config();
 require('./models/db');
 const userRouter = require('./routes/user');
-
+const productRouter = require('./routes/product')
 const User = require('./models/user');
-
+const Product = require('./models/product')
 const app = express();
 
 /*app.use((req, res, next) => {
@@ -17,6 +17,7 @@ const app = express();
 
 app.use(express.json());
 app.use(userRouter);
+app.use(productRouter);
 
 /*const test = async (email, password) => {
     const user = await User.findOne({email: email});
@@ -28,9 +29,17 @@ test ('anne01@gmail.com' , '1234abcd');*/
 
 
 
-app.get('/test',(req,res) => {
-    res.send('Hello World')
-});
+// app.get('/create-user',(req, res, next) => {
+//     req.on('data',(chunk) => {
+//         const data= JSON.parse(chunk)
+//         req.body = data;
+//         next(); 
+//     });
+// });
+
+// app.get('/test', (req,res) => {
+//     res.send({"name": "Hello World"})
+// });
 
 /*app.post('/create-user',async (req, res) => {
     res.json(req.body);
@@ -48,6 +57,23 @@ app.get('/test',(req,res) => {
     await user.save();
     res.json(user);
 });*/
+
+// app.post('/create-product',async (req, res) => {
+//     console.log(req.body)
+//     const product = await Product({
+//         name : '  sss' ,
+//         description: 'sdss ' ,
+//         image:  '  ',
+//         price: ' 45  ',
+//         quantity:' 353  ',
+//     });
+//     await product.save();
+//     res.json(res);
+// });
+
+
+
+
 
 app.get('/',(req,res)=> {
     res.json({success: true, message: 'Welcome to the backend!'});
