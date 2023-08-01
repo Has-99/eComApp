@@ -10,7 +10,9 @@ exports.validateUserSignUp = [
     .withMessage('Enter valid name!' )
     .isLength({min:3, max:20})
     .withMessage('Name' ),
+
   check('email').normalizeEmail().isEmail().withMessage('Enter valid Email'),
+  
   check('password')
     .trim()
     .not()

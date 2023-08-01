@@ -16,4 +16,8 @@ router.post('/create-post', isAuth , (req, res) => {
     res.send('Welcome you are in secret route')
 });
 
+// router.get('/test', (req, res) => {
+//     res.send('Welcome you are in secret route')
+// })
+
 module.exports = router;
