@@ -5,11 +5,11 @@ const cartController = require('../controllers/cart');
 const { isAuth } = require('../middlewares/auth');
 
 router.get('/getCarts', cartController.getAllCarts)
-router.post('/getCart', isAuth, cartController.getCart)
+router.post('/getCart', cartController.getCart)
 router.post('/createcart', cartController.addCart)
 router.post('/updatequantity', cartController.updateQuantity)
-router.post('/addtocart', isAuth, cartController.addToCart)
-router.post('/removefromcart', isAuth, cartController.removeFromCart)
-router.put('/placecart', isAuth, cartController.placeCart)
+router.post('/addtocart', cartController.addToCart)
+router.post('/removefromcart', cartController.removeFromCart)
+router.put('/placecart', cartController.placeCart)
 
 module.exports = router;

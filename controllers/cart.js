@@ -39,6 +39,7 @@ class cartController{
     addToCart = async(req, res) => {
         try {
             const product = await Product.findOne({name:req.body.product});
+            console.log("Added to cart");
             if(product.quantity >= req.body.quantity){
                 const result0 = await Product.updateOne({name:req.body.product}, {$inc: { quantity: -(req.body.quantity) }});
 
