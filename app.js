@@ -1,10 +1,12 @@
 const express = require ('express');
+const mongoose = require('mongoose')
 require('dotenv').config();
 require('./models/db');
 const userRouter = require('./routes/user');
-const productRouter = require('./routes/product')
-const User = require('./models/user');
-const Product = require('./models/product')
+const productRouter = require('./routes/product');
+//const User = require('./models/user');
+//const Product = require('./models/product')
+const cartRouter = require('./routes/cart');
 const app = express();
 
 /*app.use((req, res, next) => {
@@ -12,12 +14,13 @@ const app = express();
         const data= JSON.parse(chunk)
         req.body = data;
         next(); 
-    });
+    });   
 });*/
 
 app.use(express.json());
 app.use(userRouter);
 app.use(productRouter);
+app.use(cartRouter);
 
 /*const test = async (email, password) => {
     const user = await User.findOne({email: email});

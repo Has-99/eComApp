@@ -13,7 +13,7 @@ const {isAuth} = require('../middlewares/auth')
 router.post('/create-user', validateUserSignUp, userVlidation,  createUser);
 router.post('/sign-in',validateUserSignIn, userVlidation ,userSignIn);
 router.post('/create-post', isAuth , (req, res) => {
-    res.send('Welcome you are in secret route')
+    res.send('Welcome ')
 });
 
 // router.get('/test', (req, res) => {
